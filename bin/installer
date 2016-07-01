@@ -1,0 +1,26 @@
+#!/bin/sh
+set -x
+
+fail() {
+    echo $1 1>&2
+    echo "Usage: $0 [install|uninstall]" 1>&2
+    exit 1
+}
+
+[ $# -lt 1 ] && fail "Invalid number of arguments"
+[ $(id -u) != 0 ] && fail "Impossible to prepare the system without root privileges."
+[ $(uname) != Linux ] && fail "Impossible to prepare another operating system than Linux."
+
+case $1 in
+    install )
+        curl -sLo /usr/local/bin/fab "https://github.com/timonier/fabric/raw/master/bin/fab"
+        chmod +x /usr/local/bin/fab
+    ;;
+
+    uninstall )
+        rm /usr/local/bin/fab
+    ;;
+
+    * )
+        fail "Argument $1 is invalid."
+esac

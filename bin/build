@@ -1,0 +1,4 @@
+#!/bin/sh
+cd "`dirname "$0"`/../src"
+
+docker build -t ${IMAGE:-timonier/fabric}:${TAG:-1.11.1} .

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+UID=$(/usr/bin/id -u)
+HOME=$(/usr/bin/getent passwd $UID | cut -d: -f6)
+PWD=$(/bin/pwd)
+
+docker run \
+    -i \
+    -t=$([ -t 0 ] && echo "true" || echo "false") \
+    -u $UID \
+    -v /etc/group:/etc/group:ro \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v "$HOME:$HOME" \
+    -v "$PWD:$PWD" \
+    -w "$PWD" \
+    --rm \
+    ${IMAGE:-timonier/fabric}:${TAG:-1.11.1} "$@"
