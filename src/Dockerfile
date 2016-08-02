@@ -2,6 +2,7 @@ FROM alpine:3.4
 MAINTAINER Morgan Auchede <morgan.auchede@gmail.com>
 
 ENV \
+    CUISINE_VERSION=0.7.13 \
     FABRIC_VERSION=1.11.1
 
 RUN set -x \
@@ -20,6 +21,7 @@ RUN set -x \
     # Install fabric
 
     && pip install \
+           cuisine==$CUISINE_VERSION \
            fabric==$FABRIC_VERSION \
 
     # Clean

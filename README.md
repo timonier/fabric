@@ -65,5 +65,6 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 
 ## Links
 
+* [cuisine](https://github.com/sebastien/cuisine)
 * [fabric](http://www.fabfile.org/)
 * [image "timonier/fabric"](https://hub.docker.com/r/timonier/fabric/)
