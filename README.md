@@ -1,8 +1,10 @@
 # README
 
+Simple, Pythonic remote execution and deployment
+
 ## Installation
 
-Copy the script `bin/fab` into your executable folder (like `/usr/local/bin` or `$HOME/bin`).
+Copy the script `bin/fab` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
 
 ```sh
 sudo curl -sLo /usr/local/bin/fab "https://github.com/timonier/fabric/raw/master/bin/fab"
@@ -68,3 +70,4 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 * [cuisine](https://github.com/sebastien/cuisine)
 * [fabric](http://www.fabfile.org/)
 * [image "timonier/fabric"](https://hub.docker.com/r/timonier/fabric/)
+* [timonier/dumb-entrypoint](https://github.com/timonier/dumb-entrypoint)
