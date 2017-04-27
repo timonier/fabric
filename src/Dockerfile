@@ -1,40 +1,44 @@
-FROM alpine:3.4
+FROM python:2-alpine
 
 LABEL \
     maintainer="Morgan Auchede <morgan.auchede@gmail.com>"
 
 ENV \
-    CUISINE_VERSION=0.7.13 \
-    FABRIC_VERSION=1.11.1
+    FABRIC_VERSION=latest
 
-RUN set -x \
+RUN set -eux \
 
     # Install packages
 
-    && apk add --no-cache --no-progress --virtual build_deps \
+    && apk add --no-cache --no-progress --virtual BUILD_DEPS \
            build-base \
            curl \
-           gmp-dev \
-           python-dev \
-           py-pip \
+           libffi-dev \
+           openssl-dev \
 
     && apk add --no-cache --no-progress \
            ca-certificates \
-           python \
+           libffi \
+
+    # Install dumb-entrypoint
+
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/bin/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s install \
 
     # Install fabric
 
+    && export $(curl "https://raw.githubusercontent.com/timonier/version-lister/release/generated/fabric/${FABRIC_VERSION}" | xargs) \
+
     && pip install \
-           cuisine==${CUISINE_VERSION} \
-           fabric==${FABRIC_VERSION} \
-
-    # Install timonier/dumb-entrypoint
-
-    && curl -sL "https://github.com/timonier/dumb-entrypoint/raw/master/bin/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s install \
+           cuisine \
+           "fabric==${FABRIC_VERSION}" \
 
     # Clean
 
     && apk del \
-           build_deps
+           BUILD_DEPS \
+
+    && rm -f -r \
+         /root/.cache \
+         /tmp/*
 
 ENTRYPOINT [ "dumb-init" , "--" , "dumb-entrypoint" ]

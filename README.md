@@ -4,25 +4,31 @@ Simple, Pythonic remote execution and deployment
 
 ## Installation
 
-Copy the script `bin/fab` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
+Copy `bin/fab` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
 
 ```sh
-sudo curl -sLo /usr/local/bin/fab "https://github.com/timonier/fabric/raw/master/bin/fab"
+sudo curl --location --output /usr/local/bin/fab "https://github.com/timonier/fabric/raw/master/bin/fab"
 sudo chmod +x /usr/local/bin/fab
 ```
 
 Linux users can use the [installer](https://github.com/timonier/fabric/blob/master/bin/installer):
 
 ```sh
-curl -sL "https://github.com/timonier/fabric/raw/master/bin/installer" | sudo sh -s install
+curl --location "https://github.com/timonier/fabric/raw/master/bin/installer" | sudo sh -s install
 ```
 
 ## Usage
 
-Run the script `fab`:
+Run the command `fab`:
 
 ```sh
-$ fab --host=192.168.0.1 main
+# See all fab options
+
+fab --help
+
+# Run fab
+
+$ fab --host 192.168.0.1 main
 # [172.17.0.2] Executing task 'main'
 # [172.17.0.2] sudo: DEBIAN_FRONTEND=noninteractive apt-get update --quiet
 # [172.17.0.2] Login password for 'morgan':
@@ -43,18 +49,6 @@ $ fab --host=192.168.0.1 main
 # ...
 ```
 
-__Note__: By default, the version `1.11.1` will be used. To change the version, define the `TAG` before the command:
-
-```sh
-fab --version
-# Fabric 1.11.1
-# Paramiko 1.17.1
-
-TAG="1.11.1" drive version
-# Fabric 1.11.1
-# Paramiko 1.17.1
-```
-
 ## Contributing
 
 1. Fork it.
@@ -67,7 +61,8 @@ __Note__: Use the script `bin/build` to test your modifications locally.
 
 ## Links
 
-* [cuisine](https://github.com/sebastien/cuisine)
-* [fabric](http://www.fabfile.org/)
+* [fabric/fabric](https://github.com/fabric/fabric)
 * [image "timonier/fabric"](https://hub.docker.com/r/timonier/fabric/)
+* [sebastien/cuisine](https://github.com/sebastien/cuisine)
 * [timonier/dumb-entrypoint](https://github.com/timonier/dumb-entrypoint)
+* [timonier/version-lister](https://github.com/timonier/version-lister)
