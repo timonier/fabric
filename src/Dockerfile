@@ -6,7 +6,7 @@ LABEL \
 ENV \
     FABRIC_VERSION=latest
 
-RUN set -eux \
+RUN set -ex \
 
     # Install packages
 
@@ -20,17 +20,23 @@ RUN set -eux \
            ca-certificates \
            libffi \
 
-    # Install dumb-entrypoint
-
-    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/bin/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s install \
-
-    # Install fabric
+    # Install fabric/fabric
 
     && export $(curl "https://raw.githubusercontent.com/timonier/version-lister/release/generated/fabric/${FABRIC_VERSION}" | xargs) \
 
     && pip install \
-           cuisine \
            "fabric==${FABRIC_VERSION}" \
+
+    # Install sebastien/cuisine
+
+    && pip install \
+           cuisine \
+
+    # Install timonier/dumb-entrypoint
+
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/dumb-entrypoint/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/dumb-init/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
 
     # Clean
 
