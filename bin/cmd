@@ -20,4 +20,4 @@ docker run \
     --volume "${HOME}:${HOME}" \
     --volume "${PWD}:${PWD}" \
     --workdir "${PWD}" \
-    "${IMAGE:-timonier/fabric}:${TAG:-latest}" fab "$@"
+    "${IMAGE:-timonier/fabric}:${TAG:-latest}" "$(basename "$0")" "$@"

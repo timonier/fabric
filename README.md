@@ -4,13 +4,6 @@ Simple, Pythonic remote execution and deployment
 
 ## Installation
 
-Copy `bin/fab` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
-
-```sh
-sudo curl --location --output /usr/local/bin/fab "https://github.com/timonier/fabric/raw/master/bin/fab"
-sudo chmod +x /usr/local/bin/fab
-```
-
 Linux users can use the [installer](https://github.com/timonier/fabric/blob/master/bin/installer):
 
 ```sh

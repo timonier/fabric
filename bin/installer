@@ -25,7 +25,7 @@ fi
 
 case "$1" in
     install )
-        curl --location --output /usr/local/bin/fab "https://github.com/timonier/fabric/raw/master/bin/fab"
+        curl --location --output /usr/local/bin/fab "https://github.com/timonier/fabric/raw/master/bin/cmd"
         chmod +x /usr/local/bin/fab
     ;;
 
