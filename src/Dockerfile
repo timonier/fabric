@@ -4,7 +4,7 @@ LABEL \
     maintainer="Morgan Auchede <morgan.auchede@gmail.com>"
 
 ENV \
-    FABRIC_VERSION=latest
+    FABRIC_VERSION=1.14.0
 
 RUN set -ex \
 \
@@ -18,6 +18,7 @@ RUN set -ex \
     && apk add --no-cache --no-progress \
            ca-certificates \
            libffi \
+           libssl1.0 \
 \
     # Install fabric/fabric
 \
