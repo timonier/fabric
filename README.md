@@ -52,6 +52,8 @@ $ fab --host 192.168.0.1 main
 
 __Note__: Use the script `bin/build` to test your modifications locally.
 
+If you like / use this project, please let me known by adding a [★](https://help.github.com/articles/about-stars/) on the [GitHub repository](https://github.com/timonier/fabric).
+
 ## Links
 
 * [fabric/fabric](https://github.com/fabric/fabric)
