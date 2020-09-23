@@ -2,6 +2,8 @@
 
 Simple, Pythonic remote execution and deployment
 
+⚠️ This project is no longer maintained. ⚠️
+
 ## Installation
 
 Linux users can use the [installer](https://github.com/timonier/fabric/blob/master/bin/installer):
@@ -41,18 +43,6 @@ $ fab --host 192.168.0.1 main
 # [172.17.0.2] out:
 # ...
 ```
-
-## Contributing
-
-1. Fork it.
-2. Create your branch: `git checkout -b my-new-feature`.
-3. Commit your changes: `git commit -am 'Add some feature'`.
-4. Push to the branch: `git push origin my-new-feature`.
-5. Submit a pull request.
-
-__Note__: Use the script `bin/build` to test your modifications locally.
-
-If you like / use this project, please let me known by adding a [★](https://help.github.com/articles/about-stars/) on the [GitHub repository](https://github.com/timonier/fabric).
 
 ## Links
 

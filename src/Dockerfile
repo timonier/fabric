@@ -1,7 +1,7 @@
 FROM python:2-alpine
 
 LABEL \
-    maintainer="Morgan Auchede <morgan.auchede@gmail.com>"
+    maintainer="Morgan AUCHEDE <morgan.auchede@gmail.com>"
 
 ENV \
     FABRIC_VERSION=1.14.0
